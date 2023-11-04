@@ -4,7 +4,7 @@ import type {
 } from 'next';
 import local from 'next/font/local';
 // lib
-import StyledComponentsProvider from '@/lib/StyledComponentsProvider';
+import StyledComponentsProvider from '@/lib/styledComponents/StyledComponentsProvider';
 
 const PretendardFont = local({
     src: '../../public/fonts/PretendardVariable.woff2',

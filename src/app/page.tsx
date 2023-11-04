@@ -67,7 +67,7 @@ function Home() {
     return (
         <StyledHomeRoot>
             <div className="title">
-                Home
+                개발 환경 준비 중입니다.
             </div>
 
             <div className="wrapper">

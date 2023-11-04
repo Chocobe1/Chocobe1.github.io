@@ -6,8 +6,8 @@ import {
     useCallback,
 } from 'react';
 // styled-components
-import StyledComponentsRegistry from './styledComponents/StyledComponentsRegistry';
-import GlobalStyles from './styledComponents/GlobalStyles';
+import StyledComponentsRegistry from './StyledComponentsRegistry';
+import GlobalStyles from './GlobalStyles';
 import { 
     ThemeProvider,
 } from 'styled-components';
