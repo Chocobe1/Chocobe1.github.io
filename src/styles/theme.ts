@@ -1,8 +1,12 @@
-const theme = {
-    colors: {
-        colorName1: '#aabbcc',
-        colorName2: 'hsla(50, 60%, 70%, 0.5)',
-    },
+import colors, {
+    designSystemColors,
+} from './colors';
+
+const theme = (themeName: keyof typeof designSystemColors) => {
+    return {
+        colors,
+        designSystemColors: designSystemColors[themeName],
+    } as const;
 };
 
 export default theme;

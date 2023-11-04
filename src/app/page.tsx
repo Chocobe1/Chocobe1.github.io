@@ -20,7 +20,7 @@ const StyledHomeRoot = styled.div`
         line-height: 72px;
         font-weight: 700;
 
-        background-color: ${({ theme }) => theme.colors.colorName1};
+        background-color: ${({ theme }) => theme.colors['brown-500']};
     }
 
     > .wrapper {
@@ -34,7 +34,8 @@ const StyledHomeRoot = styled.div`
             width: 500px;
             height: 100%;
 
-            background-color: #f0f400;
+            color: ${({ theme }) => theme.designSystemColors.primary};
+            background-color: ${({ theme }) => theme.colors['deep-orange-a700']};
 
             display: flex;
             justify-content: center;
