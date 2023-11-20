@@ -9,14 +9,14 @@ import StyledBlogSlugPageRoot from './page.styled';
 // type
 import { 
     TBlogMarkdownParam,
-} from '@/utils/ssr/BlogMarkdownManager';
-
-type TBlogSlugPageProps = {
-    params: TBlogMarkdownParam;
-};
+} from '@/utils/ssr/blogMarkdownManager.type';
 
 export const generateStaticParams = () => {
     return BlogMarkdownManager.instance;
+};
+
+type TBlogSlugPageProps = {
+    params: TBlogMarkdownParam;
 };
 
 async function BlogSlugPage(props: TBlogSlugPageProps) {
@@ -130,6 +130,21 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
                             remarkPlugins: [
                                 remarkGfm,
                             ],
+                        },
+                    }}
+                    // FIXME: `src/components/markdownElements/markdownElements.ts` 작성 후, 적용하기
+                    components={{
+                        a(props) {
+                            const {
+                                href,
+                                children,
+                            } = props;
+
+                            return (
+                                <a href={href} style={{ color: '#ff1493' }} target="_blank">
+                                    {children}
+                                </a>
+                            );
                         },
                     }}
                     source={markdown} />
