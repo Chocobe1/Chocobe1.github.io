@@ -4,8 +4,11 @@ import {
     MDXRemote,
 } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
+import moonlightTheme from '@/styles/codeBlockThemes/moonlight-2.json';
 // UI Component
 import StyledBlogSlugPageRoot from './page.styled';
+import MarkdownAnchor from '@/markdownComponents/MarkdownAnchor/MarkdownAnchor';
 // type
 import { 
     TBlogMarkdownParam,
@@ -24,11 +27,6 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
         params,
     } = props;
 
-    // const {
-    //     category,
-    //     slug,
-    // } = params;
-
     const markdown = await BlogMarkdownManager.readMarkdownFile(params);
     const categoryNameList = await BlogMarkdownManager.readCategoryNameList();
 
@@ -46,74 +44,6 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
             display: 'flex',
             flexDirection: 'column',
         }}>
-            {/* TODO: Frontmatter 사용 예시 */}
-            {/* <div>
-                <h2>
-                    FrontMatter
-                </h2>
-
-                <h3>
-                    ID: {frontmatter.id}
-                </h3>
-
-                <h3>
-                    Title: {frontmatter.title}
-                </h3>
-
-                <h3>
-                    createdAt: {frontmatter.createdAt.toISOString()}
-                </h3>
-
-                <div>
-                    <h3>
-                        Tag List
-                    </h3>
-
-                    <ul style={{ listStyleType: 'disc', padding: '0 20px' }}>
-                        {frontmatter.tagList?.map((tag, index) => (
-                            <li key={index}>
-                                {tag}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>
-                        modifiedHistories: 
-                    </h3>
-
-                    <ul style={{ listStyleType: 'disc', padding: '0 20px' }}>
-                        {frontmatter.modifiedHistories?.map((history, index) => {
-                            const {
-                                commitMessage,
-                                modifiedAt,
-                            } = history;
-
-                            return (
-                                <li key={index}>
-                                    <span>
-                                        Commit Message: {commitMessage}
-                                    </span>
-                                    <br />
-                                    <span>
-                                        {modifiedAt.toISOString()};
-                                    </span>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-
-                <h3>
-                    Category: {category}
-                </h3>
-
-                <h3>
-                    Slug: {slug}
-                </h3>
-            </div> */}
-
             <div style={{ padding: '20px', color: '#ff1493' }}>
                 {categoryNameList.map((c, index) => (
                     <div key={index}>
@@ -130,22 +60,20 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
                             remarkPlugins: [
                                 remarkGfm,
                             ],
+                            rehypePlugins: [
+                                [rehypePrettyCode as any, {
+                                    grid: false,
+                                    theme: moonlightTheme,
+                                    defaultLang: {
+                                        inline: 'txt',
+                                        block: 'typescript',
+                                    },
+                                }]
+                            ]
                         },
                     }}
-                    // FIXME: `src/components/markdownElements/markdownElements.ts` 작성 후, 적용하기
                     components={{
-                        a(props) {
-                            const {
-                                href,
-                                children,
-                            } = props;
-
-                            return (
-                                <a href={href} style={{ color: '#ff1493' }} target="_blank">
-                                    {children}
-                                </a>
-                            );
-                        },
+                        a: MarkdownAnchor,
                     }}
                     source={markdown} />
             </StyledBlogSlugPageRoot>
