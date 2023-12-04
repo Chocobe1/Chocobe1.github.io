@@ -3,8 +3,8 @@ import type {
     Metadata,
 } from 'next';
 import local from 'next/font/local';
-// lib
-import StyledComponentsProvider from '@/lib/styledComponents/StyledComponentsProvider';
+// UI Components
+import RootLayout from '@/components/layouts/RootLayout/RootLayout';
 
 const PretendardFont = local({
     src: '../../public/fonts/PretendardVariable.woff2',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Frontend 기술 블로그 입니다.',
 };
 
-export default function RootLayout({
+export default function RootLayoutSSR({
     children,
 }: {
     children: React.ReactNode
@@ -24,9 +24,9 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body className={PretendardFont.className}>
-                <StyledComponentsProvider>
+                <RootLayout>
                     {children}
-                </StyledComponentsProvider>
+                </RootLayout>
             </body>
         </html>
     );

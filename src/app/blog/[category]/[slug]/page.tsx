@@ -8,7 +8,7 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import moonlightTheme from '@/styles/codeBlockThemes/moonlight-2.json';
 // UI Component
 // import StyledBlogSlugPageRoot from './page.styled';
-import BlogSlugPageCSR from '@/components/pages/BlogSlugPageCSR/BlogSlugPageCSR';
+import BlogSlugPage from '@/components/pages/BlogSlugPage/BlogSlugPage';
 import MarkdownAnchor from '@/markdownComponents/MarkdownAnchor/MarkdownAnchor';
 // type
 import { 
@@ -23,7 +23,7 @@ type TBlogSlugPageProps = {
     params: TBlogMarkdownParam;
 };
 
-async function BlogSlugPage(props: TBlogSlugPageProps) {
+async function BlogSlugPageSSR(props: TBlogSlugPageProps) {
     const {
         params,
     } = props;
@@ -36,7 +36,7 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
     }
 
     return (
-        <BlogSlugPageCSR>
+        <BlogSlugPage>
             <MDXRemote
                 options={{
                     parseFrontmatter: true,
@@ -60,7 +60,7 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
                     a: MarkdownAnchor,
                 }}
                 source={markdown} />
-        </BlogSlugPageCSR>
+        </BlogSlugPage>
         // <div style={{
         //     height: '100%',
         //     overflow: 'hidden',
@@ -103,4 +103,4 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
     );
 }
 
-export default BlogSlugPage;
+export default BlogSlugPageSSR;

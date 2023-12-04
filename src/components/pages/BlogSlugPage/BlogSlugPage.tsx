@@ -14,7 +14,7 @@ import styled from 'styled-components';
 // FIXME: /src/components/layouts/RootLayout/RootLayout.tsx 로 옮기기
 // FIXME: /src/components/layouts/RootLayout/RootLayout.tsx 로 옮기기
 
-const _StyledBlogSlugPageCSRRoot = styled.div`
+const _StyledBlogSlugPageRoot = styled.div`
     flex: 1;
 
     width: 100%;
@@ -73,16 +73,16 @@ const _StyledBlogSlugPageCSRRoot = styled.div`
     }
 `;
 
-function BlogSlugPageCSR(props: PropsWithChildren) {
+function BlogSlugPage(props: PropsWithChildren) {
     const {
         children,
     } = props;
 
     return (
-        <_StyledBlogSlugPageCSRRoot className="markdown-body">
+        <_StyledBlogSlugPageRoot className="markdown-body">
             {children}
-        </_StyledBlogSlugPageCSRRoot>
+        </_StyledBlogSlugPageRoot>
     );
 }
 
-export default memo(BlogSlugPageCSR);
+export default memo(BlogSlugPage);
