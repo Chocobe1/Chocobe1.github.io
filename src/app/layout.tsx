@@ -5,6 +5,7 @@ import type {
 import local from 'next/font/local';
 // UI Components
 import RootLayout from '@/components/layouts/RootLayout/RootLayout';
+import '@/styles/tailwindGlobalStyle.css';
 
 const PretendardFont = local({
     src: '../../public/fonts/PretendardVariable.woff2',

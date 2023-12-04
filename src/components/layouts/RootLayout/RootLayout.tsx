@@ -1,32 +1,12 @@
-'use client';
-
 // react
 import {
     PropsWithChildren,
 } from 'react';
-// styled-components
-import styled from 'styled-components';
-import StyledComponentsProvider from '@/lib/styledComponents/StyledComponentsProvider';
+// UI Components
 import RootLayoutHeader from './RootLayoutHeader';
 import RootLayoutBody from './RootLayoutBody';
-
-const StyledRootLayoutRoot = styled.div`
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    transition: all 1s ease;
-
-    > .layoutHeader {
-        //
-    }
-
-    > .layoutBody {
-        flex: 1;
-        height: 100%;
-    }
-`;
+// styled-components
+import StyledComponentsProvider from '@/lib/styledComponents/StyledComponentsProvider';
 
 function RootLayout(props: PropsWithChildren) {
     const {
@@ -34,14 +14,23 @@ function RootLayout(props: PropsWithChildren) {
     } = props;
 
     return (
-        <StyledRootLayoutRoot>
+        <div className={`
+            w-full
+            h-full
+            flex
+            flex-col
+        `.trim()}>
             <StyledComponentsProvider>
-                <RootLayoutHeader className="layoutHeader" />
-                <RootLayoutBody className="layoutBody">
+                <RootLayoutHeader />
+                <RootLayoutBody 
+                    className={`
+                        flex-1
+                        h-full
+                    `.trim()}>
                     {children}
                 </RootLayoutBody>
             </StyledComponentsProvider>
-        </StyledRootLayoutRoot>
+        </div>
     );
 }
 
