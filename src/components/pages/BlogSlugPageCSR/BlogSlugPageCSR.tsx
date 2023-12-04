@@ -10,7 +10,11 @@ import 'github-markdown-css/github-markdown-light.css';
 // styled-components
 import styled from 'styled-components';
 
-const _StyledBlogSlugPageRoot = styled.div`
+// FIXME: /src/components/layouts/RootLayout/RootLayout.tsx 로 옮기기
+// FIXME: /src/components/layouts/RootLayout/RootLayout.tsx 로 옮기기
+// FIXME: /src/components/layouts/RootLayout/RootLayout.tsx 로 옮기기
+
+const _StyledBlogSlugPageCSRRoot = styled.div`
     flex: 1;
 
     width: 100%;
@@ -18,6 +22,7 @@ const _StyledBlogSlugPageRoot = styled.div`
 
     overflow: auto;
 
+    /* 코드 블록 */
     pre {
         scrollbar-width: none;
 
@@ -68,16 +73,16 @@ const _StyledBlogSlugPageRoot = styled.div`
     }
 `;
 
-function StyledBlogSlugPageRoot(props: PropsWithChildren) {
+function BlogSlugPageCSR(props: PropsWithChildren) {
     const {
         children,
     } = props;
 
     return (
-        <_StyledBlogSlugPageRoot className="markdown-body">
+        <_StyledBlogSlugPageCSRRoot className="markdown-body">
             {children}
-        </_StyledBlogSlugPageRoot>
+        </_StyledBlogSlugPageCSRRoot>
     );
 }
 
-export default memo(StyledBlogSlugPageRoot);
+export default memo(BlogSlugPageCSR);

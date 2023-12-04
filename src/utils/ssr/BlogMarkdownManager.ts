@@ -104,6 +104,15 @@ class BlogMarkdownManager {
 
     /**
      * 특정 `.mdx` 파일의 `frontmatter` 데이터를 반환합니다.
+     * 
+     * @example 
+     * const markdown = await BlogMarkdownManager
+     *     .readMarkdownFile({ 
+     *         slug: '...', 
+     *         category: '...' 
+     *      });
+     * const frontmatter = BlogMarkdownManager
+     *     .readFrontmatterFromFile(markdown);
      */
     static readFrontmatterFromFile(markdown: string) {
         const frontmatter = matter(markdown).data as TBlogMarkdownFrontmatter;

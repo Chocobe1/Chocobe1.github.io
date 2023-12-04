@@ -7,7 +7,8 @@ import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import moonlightTheme from '@/styles/codeBlockThemes/moonlight-2.json';
 // UI Component
-import StyledBlogSlugPageRoot from './page.styled';
+// import StyledBlogSlugPageRoot from './page.styled';
+import BlogSlugPageCSR from '@/components/pages/BlogSlugPageCSR/BlogSlugPageCSR';
 import MarkdownAnchor from '@/markdownComponents/MarkdownAnchor/MarkdownAnchor';
 // type
 import { 
@@ -34,50 +35,71 @@ async function BlogSlugPage(props: TBlogSlugPageProps) {
         return null;
     }
 
-    // TODO: Frontmatter 사용 예시
-    // const frontmatter = BlogMarkdownManager.readFrontmatterFromFile(markdown);
-
     return (
-        <div style={{
-            height: '100%',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-        }}>
-            <div style={{ padding: '20px', color: '#ff1493' }}>
-                {categoryNameList.map((c, index) => (
-                    <div key={index}>
-                        {c}
-                    </div>
-                ))}
-            </div>
-
-            <StyledBlogSlugPageRoot>
-                <MDXRemote
-                    options={{
-                        parseFrontmatter: true,
-                        mdxOptions: {
-                            remarkPlugins: [
-                                remarkGfm,
-                            ],
-                            rehypePlugins: [
-                                [rehypePrettyCode as any, {
-                                    grid: false,
-                                    theme: moonlightTheme,
-                                    defaultLang: {
-                                        inline: 'txt',
-                                        block: 'typescript',
-                                    },
-                                }]
-                            ]
-                        },
-                    }}
-                    components={{
-                        a: MarkdownAnchor,
-                    }}
-                    source={markdown} />
-            </StyledBlogSlugPageRoot>
-        </div>
+        <BlogSlugPageCSR>
+            <MDXRemote
+                options={{
+                    parseFrontmatter: true,
+                    mdxOptions: {
+                        remarkPlugins: [
+                            remarkGfm,
+                        ],
+                        rehypePlugins: [
+                            [rehypePrettyCode as any, {
+                                grid: false,
+                                theme: moonlightTheme,
+                                defaultLang: {
+                                    inline: 'javascript',
+                                    block: 'typescript',
+                                },
+                            }]
+                        ]
+                    },
+                }}
+                components={{
+                    a: MarkdownAnchor,
+                }}
+                source={markdown} />
+        </BlogSlugPageCSR>
+        // <div style={{
+        //     height: '100%',
+        //     overflow: 'hidden',
+        //     display: 'flex',
+        //     flexDirection: 'column',
+        // }}>
+        //     <div style={{ padding: '20px', color: '#ff1493' }}>
+        //         {categoryNameList.map((c, index) => (
+        //             <div key={index}>
+        //                 {c}
+        //             </div>
+        //         ))}
+        //     </div>
+        //     <BlogSlugPageCSR>
+        //         <MDXRemote
+        //             options={{
+        //                 parseFrontmatter: true,
+        //                 mdxOptions: {
+        //                     remarkPlugins: [
+        //                         remarkGfm,
+        //                     ],
+        //                     rehypePlugins: [
+        //                         [rehypePrettyCode as any, {
+        //                             grid: false,
+        //                             theme: moonlightTheme,
+        //                             defaultLang: {
+        //                                 inline: 'txt',
+        //                                 block: 'typescript',
+        //                             },
+        //                         }]
+        //                     ]
+        //                 },
+        //             }}
+        //             components={{
+        //                 a: MarkdownAnchor,
+        //             }}
+        //             source={markdown} />
+        //     </BlogSlugPageCSR>
+        // </div>
     );
 }
 
