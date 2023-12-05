@@ -6,12 +6,13 @@ import {
 } from 'react';
 // nextjs
 import Link from 'next/link';
+// Components
+import RootLayoutNav from './RootLayoutNav';
 // styled-components
 import styled from 'styled-components';
 
 const StyledRootLayoutHeaderRoot = styled.header`
-
-background-color: ${({ theme }) => theme.designSystemColors.type.b};
+    background-color: ${({ theme }) => theme.designSystemColors.type.b};
 
     > .innerWrapper {
         margin: 0 auto;
@@ -21,21 +22,6 @@ background-color: ${({ theme }) => theme.designSystemColors.type.b};
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-
-        > .headerNav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-
-            > .navLink {
-                padding: 0 8px;
-
-                color: ${({ theme }) => theme.designSystemColors.text['222']};
-                font-size: 16px;
-                line-height: 24px;
-                font-weight: 500;
-            }
-        }
 
         > .logoLink {
             display: flex;
@@ -97,20 +83,7 @@ function RootLayoutHeader(props: TRootLayoutHeaderProps) {
     return (
         <StyledRootLayoutHeaderRoot className={className}>
             <div className="innerWrapper">
-                {/* FIXME: RootNav 컴포넌트 만들기 */}
-                <div className="headerNav">
-                    <Link 
-                        className="navLink"
-                        href="/blog">
-                        Blog
-                    </Link>
-
-                    <Link
-                        className="navLink"
-                        href="/profile">
-                        Profile
-                    </Link>
-                </div>
+                <RootLayoutNav />
 
                 <Link 
                     className="logoLink"
