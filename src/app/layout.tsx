@@ -4,7 +4,7 @@ import type {
 } from 'next';
 import local from 'next/font/local';
 // UI Components
-import RootLayout from '@/components/layouts/RootLayout/RootLayout';
+import RootLayoutSSR from '@/components/layouts/RootLayoutSSR/RootLayoutSSR';
 import '@/styles/tailwindGlobalStyle.css';
 
 const PretendardFont = local({
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Frontend 기술 블로그 입니다.',
 };
 
-export default function RootLayoutSSR({
+export default function RootLayout({
     children,
 }: {
     children: React.ReactNode
@@ -25,9 +25,9 @@ export default function RootLayoutSSR({
     return (
         <html lang="ko">
             <body className={PretendardFont.className}>
-                <RootLayout>
+                <RootLayoutSSR>
                     {children}
-                </RootLayout>
+                </RootLayoutSSR>
             </body>
         </html>
     );

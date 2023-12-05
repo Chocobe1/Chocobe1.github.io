@@ -8,7 +8,7 @@ import RootLayoutBody from './RootLayoutBody';
 // styled-components
 import StyledComponentsProvider from '@/lib/styledComponents/StyledComponentsProvider';
 
-function RootLayout(props: PropsWithChildren) {
+function RootLayoutSSR(props: PropsWithChildren) {
     const {
         children,
     } = props;
@@ -17,16 +17,10 @@ function RootLayout(props: PropsWithChildren) {
         <div className={`
             w-full
             h-full
-            flex
-            flex-col
         `.trim()}>
             <StyledComponentsProvider>
                 <RootLayoutHeader />
-                <RootLayoutBody 
-                    className={`
-                        flex-1
-                        h-full
-                    `.trim()}>
+                <RootLayoutBody>
                     {children}
                 </RootLayoutBody>
             </StyledComponentsProvider>
@@ -34,4 +28,4 @@ function RootLayout(props: PropsWithChildren) {
     );
 }
 
-export default RootLayout;
+export default RootLayoutSSR;

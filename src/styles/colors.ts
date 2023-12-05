@@ -278,22 +278,37 @@ const colors = {
 
 export const designSystemColors = {
     light: {
-        primary: "rgba(255, 255, 255, 1)",
-        secondary: "rgba(255, 255, 255, 0.7)",
-        disabled: "rgba(255, 255, 255, 0.5)",
-        dividers: "rgba(255, 255, 255, 0.12)",
-        iconActive: "rgba(255, 255, 255, 1)",
-        iconInactive: "rgba(255, 255, 255, 0.5)",
+        text: {
+            primary: "rgba(255, 255, 255, 1)",
+            secondary: "rgba(255, 255, 255, 0.7)",
+            disabled: "rgba(255, 255, 255, 0.5)",
+            dividers: "rgba(255, 255, 255, 0.12)",
+            iconActive: "rgba(255, 255, 255, 1)",
+            iconInactive: "rgba(255, 255, 255, 0.5)",
+            fff: '#fff',
+            222: '#222',
+            333: '#333',
+        },
+
+        type: {
+            a: '#00AAA1',
+            b: '#E8F3F3',
+            c: '#DFF1F0',
+            d: '#F2F8F7',
+            e: '#D9D9D9',
+            f: '#2B2C2E',
+            g: '#ffffff',
+        },
     },
 
-    dark: {
-        primary: "rgba(0, 0, 0, 0.87)",
-        secondary: "rgba(0, 0, 0, 0.54)",
-        disabled: "rgba(0, 0, 0, 0.38)",
-        dividers: "rgba(0, 0, 0, 0.12)",
-        iconActive: "rgba(0, 0, 0, 0.54)",
-        iconInactive: "rgba(0, 0, 0, 0.38)",
-    },
+    // dark: {
+    //     primary: "rgba(0, 0, 0, 0.87)",
+    //     secondary: "rgba(0, 0, 0, 0.54)",
+    //     disabled: "rgba(0, 0, 0, 0.38)",
+    //     dividers: "rgba(0, 0, 0, 0.12)",
+    //     iconActive: "rgba(0, 0, 0, 0.54)",
+    //     iconInactive: "rgba(0, 0, 0, 0.38)",
+    // },
 } as const;
 
 export default colors;
