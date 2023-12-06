@@ -298,6 +298,19 @@ export const designSystemColors = {
             e: '#D9D9D9',
             f: '#2B2C2E',
             g: '#ffffff',
+            h: '#009189',
+        },
+
+        blogPostCard: {
+            category: '#592EA9',
+            title: '#232536',
+            date: '#4C4C4C',
+            description: '#6D6E76',
+            boxShadow: '3px 6px 12px 0 rgba(0, 0, 0, 0.5)',
+            readMoreLink: {
+                color: '#fff',
+                bg: '#009189',
+            },
         },
     },
 
