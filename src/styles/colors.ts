@@ -301,7 +301,34 @@ export const designSystemColors = {
             h: '#009189',
         },
 
-        blogPostCard: {
+        HomePage: {
+            labelColor: '#232536',
+        },
+
+        // TODO: 컴포넌트.color.ts 로 분리해야 할 듯...
+        // TODO: 컴포넌트.color.ts 로 분리해야 할 듯...
+        // TODO: 컴포넌트.color.ts 로 분리해야 할 듯...
+        BlogCategoryCard: {
+            borderColor: '#D9D9D9',
+            category: '#232536',
+            description: '#6D6E76',
+            iconWrapper: '#FBF6EA',
+            icon: '#232536',
+            decoratorGreen: '#fff',
+            decoratorYellow: '#fff',
+
+            hover: {
+                borderColor: 'transparent',
+                category: '#fff',
+                description: '#eee',
+                iconWrapper: '#fff',
+                icon: '#009189',
+                decoratorGreen: '#009189',
+                decoratorYellow: '#FFD050',
+            },
+        },
+
+        BlogPostCard: {
             category: '#592EA9',
             title: '#232536',
             date: '#4C4C4C',

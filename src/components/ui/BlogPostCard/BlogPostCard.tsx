@@ -79,7 +79,7 @@ const StyledBlogPostCardRoot = styled.div`
         }
 
         > .category {
-            color: ${({ theme }) => theme.designSystemColors.blogPostCard.category};
+            color: ${({ theme }) => theme.designSystemColors.BlogPostCard.category};
             font-size: 16px;
             line-height: 24px;
             font-weight: 600;
@@ -88,7 +88,7 @@ const StyledBlogPostCardRoot = styled.div`
         > .title {
             margin-top: 20px;
 
-            color: ${({ theme }) => theme.designSystemColors.blogPostCard.title};
+            color: ${({ theme }) => theme.designSystemColors.BlogPostCard.title};
             font-size: 24px;
             line-height: 30px;
             font-weight: 700;
@@ -97,7 +97,7 @@ const StyledBlogPostCardRoot = styled.div`
         > .date {
             margin-top: 16px;
 
-            color: ${({ theme }) => theme.designSystemColors.blogPostCard.date};
+            color: ${({ theme }) => theme.designSystemColors.BlogPostCard.date};
             font-size: 14px;
             line-height: 22px;
             font-weight: 500;
@@ -106,7 +106,7 @@ const StyledBlogPostCardRoot = styled.div`
         > .description {
             margin-top: 16px;
 
-            color: ${({ theme }) => theme.designSystemColors.blogPostCard.description};
+            color: ${({ theme }) => theme.designSystemColors.BlogPostCard.description};
             font-size: 16px;
             line-height: 24px;
             font-weight: 400;
@@ -124,17 +124,17 @@ const StyledBlogPostCardRoot = styled.div`
 
             display: none;
 
-            color: ${({ theme }) => theme.designSystemColors.blogPostCard.readMoreLink.color};
+            color: ${({ theme }) => theme.designSystemColors.BlogPostCard.readMoreLink.color};
             font-size: 18px;
             line-height: 28px;
             font-weight: 700;
 
-            background-color: ${({ theme }) => theme.designSystemColors.blogPostCard.readMoreLink.bg};
+            background-color: ${({ theme }) => theme.designSystemColors.BlogPostCard.readMoreLink.bg};
         }
     }
 
     &:not([data-variant=${blogPostCardVariantMapper.FEATURED}]):hover {
-        box-shadow: ${({ theme }) => theme.designSystemColors.blogPostCard.boxShadow};
+        box-shadow: ${({ theme }) => theme.designSystemColors.BlogPostCard.boxShadow};
 
         > .cardBody {
             //
